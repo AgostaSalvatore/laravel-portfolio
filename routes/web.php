@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,5 +26,7 @@ Route::middleware('auth', 'verified')
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
     });
+
+Route::resource('projects', ProjectController::class);
 
 require __DIR__ . '/auth.php';
