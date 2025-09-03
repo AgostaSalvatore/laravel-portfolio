@@ -1,0 +1,28 @@
+@extends('layouts.projects')
+
+@section('title', 'Lista Progetti')
+
+@section('content')
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titolo</th>
+                <th>Data Creazione</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($projects as $project)
+                <tr>
+                    <td>{{ $project->id }}</td>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->created_at }}</td>
+                    <td><a href="{{ route('projects.show', $project->id) }}">Show</a></td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+    
+@endsection
