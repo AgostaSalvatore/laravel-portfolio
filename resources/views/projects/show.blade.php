@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $project->title }}</h1>
-    <p>{{ $project->description }}</p>
-    <p>{{ $project->created_at }}</p>
+    <h1> Title: {{ $project->title }}</h1>
+    <p> Description: {{ $project->description }}</p>
+    <p> Type: {{ $project->type }}</p>
 </div>
 @endsection

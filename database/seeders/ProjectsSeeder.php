@@ -21,6 +21,7 @@ class ProjectsSeeder extends Seeder
             $newProject->description = $faker->text(100);
             $newProject->image       = $faker->imageUrl(640, 480);
             $newProject->link        = $faker->url();
+            $newProject->type        = $faker->randomElement(['Laravel', 'Web Design', 'Backend', 'Frontend']);
 
             $newProject->save();
         }
