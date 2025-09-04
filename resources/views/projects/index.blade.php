@@ -9,7 +9,9 @@
             <tr>
                 <th>ID</th>
                 <th>Titolo</th>
+                <th>Tipo</th>
                 <th>Data Creazione</th>
+                <th>Visita</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +19,7 @@
                 <tr>
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
+                    <td>{{ $project->type }}</td>
                     <td>{{ $project->created_at }}</td>
                     <td><a href="{{ route('projects.show', $project->id) }}">Show</a></td>
                 </tr>
