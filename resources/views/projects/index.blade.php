@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{route('types.index')}}">Lista Tipologie</a>
     <table class="table">
         <thead>
             <tr>
