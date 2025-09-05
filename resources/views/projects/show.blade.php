@@ -38,6 +38,6 @@
 
     <h1> Title: {{ $project->title }}</h1>
     <p> Description: {{ $project->description }}</p>
-    <p> Type: {{ $project->type }}</p>
+    <p> Type: {{ $project->type->name }}</p>
 </div>
 @endsection

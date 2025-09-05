@@ -19,12 +19,10 @@
 
         <div class="form-control mb-3 d-flex">
             <label for="type">Tipo</label>
-            <select name="type" id="type">
-                <option value="">Seleziona un tipo</option>
-                <option value="Laravel">Laravel</option>
-                <option value="Web Design">Web Design</option>
-                <option value="Backend">Backend</option>
-                <option value="Frontend">Frontend</option>
+            <select name="type_id" id="type_id">
+                @foreach($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
             </select>
         </div>
 
