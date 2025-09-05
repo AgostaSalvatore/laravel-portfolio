@@ -23,7 +23,9 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        // create new type
+        $types = Type::all();
+        return view('types.create', compact('types'));
     }
 
     /**
@@ -31,31 +33,48 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newType = new Type();
+
+        $newType->name        = $data['name'];
+        $newType->description = $data['description'];
+
+        $newType->save();
+
+        return redirect()->route('types.show', $newType);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Type $type)
     {
-        //
+        return view('types.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Type $type)
     {
-        //
+        $types = Type::all();
+        return view('types.edit', compact('type', 'types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+
+        $type->name        = $data['name'];
+        $type->description = $data['description'];
+
+        $type->save();
+
+        return redirect()->route('types.show', $type);
     }
 
     /**
