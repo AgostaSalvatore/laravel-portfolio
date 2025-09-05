@@ -4,7 +4,8 @@
 
 @section('content')
 <div class="container">
-    <a href="{{route('types.index')}}">Lista Tipologie</a>
+    <a class="btn btn-outline-primary" href="{{route('projects.create')}}">Crea nuovo progetto</a>
+    <a class="btn btn-outline-primary" href="{{route('types.index')}}">Lista Tipologie</a>
     <table class="table">
         <thead>
             <tr>
@@ -20,7 +21,7 @@
                 <tr>
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->type->name }}</td>
+                    <td>{{ $project->type ? $project->type->name : 'Nessun tipo Assegnato' }}</td>
                     <td>{{ $project->created_at }}</td>
                     <td><a href="{{ route('projects.show', $project->id) }}">Show</a></td>
                 </tr>

@@ -38,6 +38,6 @@
 
     <h1> Title: {{ $project->title }}</h1>
     <p> Description: {{ $project->description }}</p>
-    <p> Type: {{ $project->type->name }}</p>
+    <p> Type: {{ $project->type ? $project->type->name : 'Nessun tipo assegnato' }}</p>
 </div>
 @endsection

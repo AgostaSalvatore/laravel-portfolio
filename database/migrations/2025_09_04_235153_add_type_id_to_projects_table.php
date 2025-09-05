@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('projects', function (Blueprint $table) {
             // add type_id column first
-            $table->foreignId('type_id')->default(1)->constrained()->after('title');
+            $table->foreignId('type_id')->nullable()->constrained()->onDelete('set null')->after('title');
 
             // then remove type column
             $table->dropColumn('type');
