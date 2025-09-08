@@ -37,7 +37,16 @@
     </div>
 
     <h1> Title: {{ $project->title }}</h1>
-    <p> Description: {{ $project->description }}</p>
-    <p> Type: {{ $project->type ? $project->type->name : 'Nessun tipo assegnato' }}</p>
+    <div class="mb-4 d-flex flex-column">
+        <p> Description: {{ $project->description }}</p>
+        <p> Type: {{ $project->type ? $project->type->name : 'Nessun tipo assegnato' }}</p>
+        <p> Technologies: 
+            @forelse ($project->technologies as $technology)
+                <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+            @empty
+                <span class="badge bg-secondary">Nessuna tecnologia assegnata</span>
+            @endforelse
+        </p>
+    </div>
 </div>
 @endsection

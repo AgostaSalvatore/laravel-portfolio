@@ -27,6 +27,23 @@
             </select>
         </div>
 
+        
+        {{-- Technologies --}}
+
+        <div class="form-control mb-3 d-flex flex-wrap">
+            @foreach ($technologies as $technology)
+            <div class="tag me-3">
+                <input 
+                type="checkbox" 
+                name="technologies[]" 
+                value="{{$technology->id}}" 
+                id="technology-{{$technology->id}}"
+                {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+                <label for="technology-{{$technology->id}}">{{$technology->name}}</label>
+            </div>
+            @endforeach
+        </div>
+
         <button type="submit" value="Modifica">Modifica</button>
     </form>
 
