@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $types = Type::all();
-        return view('projects.create', compact('types'));
+        // all type's data
+        $types        = Type::all();
+        // all technology's data
+        $technologies = Technology::all();
+
+        return view('projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -41,6 +46,9 @@ class ProjectController extends Controller
         $newProject->type_id     = $data['type_id'];
 
         $newProject->save();
+
+        // AFTER SAVE
+        $newProject->technologies()->attach($data['technologies']);
 
         return redirect()->route('projects.show', $newProject);
     }
