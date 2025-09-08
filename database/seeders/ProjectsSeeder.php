@@ -24,6 +24,12 @@ class ProjectsSeeder extends Seeder
             $newProject->type_id     = rand(1, 5);
 
             $newProject->save();
+
+            // Attach 1-3 random technologies to each project
+            $allTechIds = range(1, 6);  // [1, 2, 3, 4, 5, 6]
+            shuffle($allTechIds);
+            $randomTechs = array_slice($allTechIds, 0, rand(1, 3));
+            $newProject->technologies()->attach($randomTechs);
         }
     }
 }

@@ -12,6 +12,7 @@
                 <th>ID</th>
                 <th>Titolo</th>
                 <th>Tipo</th>
+                <th>Tecnologie</th>
                 <th>Data Creazione</th>
                 <th>Visita</th>
             </tr>
@@ -22,6 +23,11 @@
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->type ? $project->type->name : 'Nessun tipo Assegnato' }}</td>
+                    <td>
+                        @foreach($project->technologies as $technology)
+                            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+                        @endforeach
+                    </td>
                     <td>{{ $project->created_at }}</td>
                     <td><a href="{{ route('projects.show', $project->id) }}">Show</a></td>
                 </tr>
