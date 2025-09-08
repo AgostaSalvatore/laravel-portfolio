@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +29,14 @@ Route::middleware('auth', 'verified')
         Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
     });
 
+// Routes for projects
 Route::resource('projects', ProjectController::class);
 // ->middleware('auth', 'verified');
 
+// Routes for types
 Route::resource('types', TypeController::class);
+
+// Routes for technologies
+Route::resource('technologies', TechnologyController::class);
 
 require __DIR__ . '/auth.php';

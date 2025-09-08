@@ -6,6 +6,7 @@
 <div class="container">
     <a class="btn btn-outline-primary" href="{{route('projects.create')}}">Crea nuovo progetto</a>
     <a class="btn btn-outline-primary" href="{{route('types.index')}}">Lista Tipologie</a>
+    <a class="btn btn-outline-primary" href="{{route('technologies.index')}}">Lista Tecnologie</a>
     <table class="table">
         <thead>
             <tr>
